@@ -733,7 +733,7 @@ class MachineBridge:
                 with open(path) as _f:
                     m["program_total_lines"] = sum(1 for _ in _f)
             except Exception:
-                m["program_total_lines"] = len(wp) or 100
+                m["program_total_lines"] = len(parsed.get("waypoints", [])) or 100
 
         elif op == "program_run":
             if m["program_file"] and m["task_state"] == 4:
